@@ -11,20 +11,33 @@ namespace _24_8_17_Client_Excercise_4
 {
     class EchoServerFacade
     {
-        //private NetworkStream netStream;
+        private NetworkStream netStream;
+        private TcpClient client;
         private int port;
-        //private StreamReader reader;
-        //private StreamWriter writer;
+        private StreamReader reader;
+        private StreamWriter writer;
         private string serverName;
         private Socket serverSocket;
         private IPAddress ip = IPAddress.Loopback;
 
         public EchoServerFacade()
         {
+            //Sockets
+
             port = 5000;
             serverName = "Echo Server";
             serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             serverSocket.Connect(new IPEndPoint(ip, port));
+
+            //Tcp
+
+            //port = 5000;
+            //serverName = "Echo Server";
+            //client = new TcpClient("localhost", port);
+            //netStream = client.GetStream();
+            //reader = new StreamReader(netStream);
+            //writer = new StreamWriter(netStream);
+            //writer.AutoFlush = true;
         }
 
         private void Close()
@@ -39,6 +52,8 @@ namespace _24_8_17_Client_Excercise_4
 
         public string Echo(string word)
         {
+            //Sockets
+
             try
             {
                 SendToServer(word);
@@ -51,6 +66,19 @@ namespace _24_8_17_Client_Excercise_4
             {
                 return e.Message;
             }
+
+            //Tcp
+
+            //try
+            //{
+            //    writer.WriteLine(word);
+            //    string str = reader.ReadLine();
+            //    return str;
+            //}
+            //catch (Exception e)
+            //{
+            //    return e.Message;
+            //}
         }
 
         public string EchoUpper(string word)
