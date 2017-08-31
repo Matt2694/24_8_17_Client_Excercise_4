@@ -38,6 +38,10 @@ namespace _24_8_17_Client_Excercise_4
                     case "echoupper":
                         output = remoteFacade.EchoUpper(strArr);
                         break;
+                    case "EchoLast":
+                    case "echolast":
+                        output = remoteFacade.EchoLast();
+                        break;
                     case "Exit":
                     case "exit":
                         isRunning = false;
