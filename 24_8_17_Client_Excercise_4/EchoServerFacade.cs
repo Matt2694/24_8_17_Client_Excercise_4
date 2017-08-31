@@ -24,20 +24,20 @@ namespace _24_8_17_Client_Excercise_4
         {
             //Sockets
 
-            //port = 5000;
-            //serverName = "Echo Server";
-            //serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            //serverSocket.Connect(new IPEndPoint(ip, port));
+            port = 5000;
+            serverName = "Echo Server";
+            serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            serverSocket.Connect(new IPEndPoint(ip, port));
 
             //Tcp
 
-            port = 5000;
-            serverName = "Echo Server";
-            client = new TcpClient("localhost", port);
-            netStream = client.GetStream();
-            reader = new StreamReader(netStream);
-            writer = new StreamWriter(netStream);
-            writer.AutoFlush = true;
+            //port = 5000;
+            //serverName = "Echo Server";
+            //client = new TcpClient("localhost", port);
+            //netStream = client.GetStream();
+            //reader = new StreamReader(netStream);
+            //writer = new StreamWriter(netStream);
+            //writer.AutoFlush = true;
         }
 
         private void Close()
@@ -54,62 +54,62 @@ namespace _24_8_17_Client_Excercise_4
         {
             //Sockets
 
-            //try
-            //{
-            //    SendToServer(word);
-            //    string str = ReceiveFromServer();
-            //    int i = str.IndexOf('\0');
-            //    str = str.Substring(0, i);
-            //    return str;
-            //}
-            //catch (Exception e)
-            //{
-            //    return e.Message;
-            //}
-
-            //Tcp
-
             try
             {
-                writer.WriteLine(words[0] + " " + words[1]);
-                string str = reader.ReadLine();
+                SendToServer(words[0] + " " + words[1]);
+                string str = ReceiveFromServer();
+                int i = str.IndexOf('\0');
+                str = str.Substring(0, i);
                 return str;
             }
             catch (Exception e)
             {
                 return e.Message;
             }
+
+            //Tcp
+
+            //try
+            //{
+            //    writer.WriteLine(words[0] + " " + words[1]);
+            //    string str = reader.ReadLine();
+            //    return str;
+            //}
+            //catch (Exception e)
+            //{
+            //    return e.Message;
+            //}
         }
 
         public string EchoUpper(string[] words)
         {
             //Sockets
 
-            //try
-            //{
-            //    SendToServer(word);
-            //    string str = ReceiveFromServer();
-            //    int i = str.IndexOf('\0');
-            //    str = str.Substring(0, i);
-            //    return str;
-            //}
-            //catch (Exception e)
-            //{
-            //    return e.Message;
-            //}
-
-            //Tcp
-
             try
             {
-                writer.WriteLine(words[0] + " " + words[1]);
-                string str = reader.ReadLine();
+                SendToServer(words[0] + " " + words[1]);
+                string str = ReceiveFromServer();
+                int i = str.IndexOf('\0');
+                str = str.Substring(0, i);
                 return str;
             }
             catch (Exception e)
             {
                 return e.Message;
             }
+
+            //Tcp
+
+            //try
+            //{
+            //    writer.WriteLine(words[0] + " " + words[1]);
+            //    string str = reader.ReadLine();
+            //    return str;
+            //}
+            //catch (Exception e)
+            //{
+            //    return e.Message;
+            //}
         }
 
         private void Open()
