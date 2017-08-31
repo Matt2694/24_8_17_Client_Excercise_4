@@ -32,11 +32,11 @@ namespace _24_8_17_Client_Excercise_4
                 {
                     case "Echo":
                     case "echo":
-                        output = remoteFacade.Echo(strArr[1]);
+                        output = remoteFacade.Echo(strArr);
                         break;
                     case "EchoUpper":
                     case "echoupper":
-                        output = remoteFacade.EchoUpper(strArr[1]);
+                        output = remoteFacade.EchoUpper(strArr);
                         break;
                     case "Exit":
                     case "exit":
